@@ -619,8 +619,14 @@ namespace BaoMen.Common.Data
         /// </summary>
         protected readonly Logger logger;
 
+        /// <summary>
+        /// 数据访问实例
+        /// </summary>
         protected readonly TDataAccess dal;
 
+        /// <summary>
+        /// 类型实例
+        /// </summary>
         protected readonly Type type;
 
         /// <summary>

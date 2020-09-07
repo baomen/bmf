@@ -16,7 +16,7 @@ namespace BaoMen.Framework.Util
         /// </summary>
         /// <param name="services"></param>
         /// <returns></returns>
-        public static IServiceCollection AddBmmf(this IServiceCollection services)
+        public static IServiceCollection AddBmf(this IServiceCollection services)
         {
             services.AddSingleton<System.BusinessLogic.IUserManager, System.BusinessLogic.UserManager>();
             services.AddSingleton<System.BusinessLogic.UserRoleManager>();

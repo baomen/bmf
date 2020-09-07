@@ -9,6 +9,9 @@ namespace BaoMen.Common.Model
     /// </summary>
     public class DapperCommand
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public DapperCommand()
         {
             Flags = CommandFlags.Buffered;

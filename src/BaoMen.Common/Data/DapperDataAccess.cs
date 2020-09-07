@@ -51,6 +51,11 @@ namespace BaoMen.Common.Data
             return Guid.NewGuid().ToString("N");
         }
 
+        /// <summary>
+        /// 获取数据库提供程序工厂
+        /// </summary>
+        /// <param name="providerName"></param>
+        /// <returns></returns>
         protected DbProviderFactory GetDbProviderFactory(string providerName)
         {
             if (string.IsNullOrEmpty(providerName)) throw new ArgumentNullException("providerName");
@@ -770,6 +775,11 @@ namespace BaoMen.Common.Data
             where TEntity : class, new()
         where TFilter : class
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="connectionString">数据库连接串</param>
+        /// <param name="providerName">提供程序名称</param>
         public DapperDataAccessAsync(string connectionString, string providerName)
             : base(connectionString, providerName)
         {

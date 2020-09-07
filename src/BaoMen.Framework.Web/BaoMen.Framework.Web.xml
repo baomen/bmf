@@ -1,0 +1,2198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BaoMen.Framework.Web</name>
+    </assembly>
+    <members>
+        <member name="T:BaoMen.Framework.Web.Converter.FenToYuanConverter">
+            <summary>
+            分 --> 元
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.FenToYuanConverter.Convert(System.Int32,AutoMapper.ResolutionContext)">
+            <summary>
+            转换
+            </summary>
+            <param name="sourceMember">源</param>
+            <param name="context">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Converter.KeyToModelConverter`4">
+            <summary>
+            ID 到 模型 转换器
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.KeyToModelConverter`4.#ctor(`2,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑</param>
+            <param name="mapper">autoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.KeyToModelConverter`4.Convert(`0,AutoMapper.ResolutionContext)">
+            <summary>
+            转换
+            </summary>
+            <param name="sourceMember"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Converter.KeyToNameConverter`2">
+            <summary>
+            ID 到 名称 转换器
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.KeyToNameConverter`2.#ctor(`1)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.KeyToNameConverter`2.Convert(`0,AutoMapper.ResolutionContext)">
+            <summary>
+            转换
+            </summary>
+            <param name="sourceMember"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Converter.NameToKeyConverter`2">
+            <summary>
+            名称 到 ID 转换器
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.NameToKeyConverter`2.#ctor(`1)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.NameToKeyConverter`2.Convert(System.String,AutoMapper.ResolutionContext)">
+            <summary>
+            转换
+            </summary>
+            <param name="sourceMember"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Converter.YuanToFenConverter">
+            <summary>
+            元 --> 分
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Converter.YuanToFenConverter.Convert(System.Decimal,AutoMapper.ResolutionContext)">
+            <summary>
+            转换
+            </summary>
+            <param name="sourceMember">源</param>
+            <param name="context">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_0">
+            <summary>
+              Looks up a localized string similar to .
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1000">
+            <summary>
+              Looks up a localized string similar to 系统异常.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10001">
+            <summary>
+              Looks up a localized string similar to 用户名/密码 不能为空.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10002">
+            <summary>
+              Looks up a localized string similar to 用户名不存在.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10003">
+            <summary>
+              Looks up a localized string similar to 密码不正确.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10004">
+            <summary>
+              Looks up a localized string similar to 用户不存在.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10005">
+            <summary>
+              Looks up a localized string similar to RefreshToken已过期.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10006">
+            <summary>
+              Looks up a localized string similar to RefreshToken不正确.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10007">
+            <summary>
+              Looks up a localized string similar to 用户已禁用.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1001">
+            <summary>
+              Looks up a localized string similar to 创建数据失败.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1002">
+            <summary>
+              Looks up a localized string similar to 更新数据失败.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1003">
+            <summary>
+              Looks up a localized string similar to 删除数据失败.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1004">
+            <summary>
+              Looks up a localized string similar to 数据已由其它人修改，请刷新后重试.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1005">
+            <summary>
+              Looks up a localized string similar to 数据校验失败.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1006">
+            <summary>
+              Looks up a localized string similar to 文件上传失败.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1007">
+            <summary>
+              Looks up a localized string similar to API返回失败.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1008">
+            <summary>
+              Looks up a localized string similar to 调用API失败.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1009">
+            <summary>
+              Looks up a localized string similar to 验证码不正确.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1010">
+            <summary>
+              Looks up a localized string similar to 手机验证码不正确.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_400">
+            <summary>
+              Looks up a localized string similar to 请求无效（数据验证未通过）.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_401">
+            <summary>
+              Looks up a localized string similar to 身份验证未通过（未登录）.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_403">
+            <summary>
+              Looks up a localized string similar to 禁止访问（无权限）.
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.CacheController">
+            <summary>
+            缓存控制器
+            </summary>
+        </member>
+        <member name="F:BaoMen.Framework.Web.System.Controllers.CacheController.cache">
+            <summary>
+            缓存实例
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CacheController.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="configuration">配置实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CacheController.Get(System.String)">
+            <summary>
+            获取缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CacheController.Remove(System.String)">
+            <summary>
+            获取所有缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CacheController.GetKeys">
+            <summary>
+            获取所有缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CacheController.GetAll">
+            <summary>
+            获取所有缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CacheController.GetList(BaoMen.Framework.Web.System.Models.CacheFilter,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取多个实例的数量和ICollection列表
+            </summary>
+            <param name="filter">过滤器</param>
+            <param name="sort">排序字串</param>
+            <param name="pageIndex">开始的页数（从1开始）</param>
+            <param name="pageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.CityController">
+            <summary>
+            系统地市
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CityController.#ctor(BaoMen.Framework.System.BusinessLogic.ICityManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.CityController.GetOptions(BaoMen.Framework.System.Entity.CityFilter)">
+            <summary>
+            获取地市选项列表
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.DistrictController">
+            <summary>
+            系统地区
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.DistrictController.#ctor(BaoMen.Framework.System.BusinessLogic.IDistrictManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.DistrictController.GetOptions(BaoMen.Framework.System.Entity.DistrictFilter)">
+            <summary>
+            获取地区选项列表
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.DownloadFileController">
+            <summary>
+            下载文件
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.DownloadFileController.#ctor(BaoMen.Framework.System.BusinessLogic.IDownloadFileManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.ModuleController">
+            <summary>
+            系统模块
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.ModuleController.#ctor(BaoMen.Framework.System.BusinessLogic.IModuleManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.ModuleController.GetNestedList(BaoMen.Framework.System.Entity.ModuleFilter,System.String)">
+            <summary>
+            取得嵌套的列表（包含子模块)
+            </summary>
+            <param name="filter">过滤器</param>
+            <param name="sort">排序规则</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.OperateHistoryController">
+            <summary>
+            操作记录
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.OperateHistoryController.#ctor(BaoMen.Framework.System.BusinessLogic.IOperateHistoryManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.ParameterController">
+            <summary>
+            系统参数
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.ParameterController.#ctor(BaoMen.Framework.System.BusinessLogic.IParameterManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.ParameterController.Create(BaoMen.Framework.Web.System.Models.CreateParameter)">
+            <summary>
+            创建数据
+            </summary>
+            <param name="model">创建模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.ProvinceController">
+            <summary>
+            系统省份
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.ProvinceController.#ctor(BaoMen.Framework.System.BusinessLogic.IProvinceManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.ProvinceController.GetOptions(BaoMen.Framework.System.Entity.ProvinceFilter)">
+            <summary>
+            获取省份选项列表
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.RoleController">
+            <summary>
+            系统角色
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.RoleController.#ctor(BaoMen.Framework.System.BusinessLogic.IRoleManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.RoleController.GetOptions(BaoMen.Framework.System.Entity.RoleFilter)">
+            <summary>
+            获取角色选项列表
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.UploadFileController">
+            <summary>
+            上传文件
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.UploadFileController.#ctor(BaoMen.Framework.System.BusinessLogic.IUploadFileManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.UploadFileController.UploadFile(BaoMen.Framework.Web.System.Models.CreateUploadFile)">
+            <summary>
+            上传文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Controllers.UserLoginHistoryController">
+            <summary>
+            系统用户登录历史
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Controllers.UserLoginHistoryController.#ctor(BaoMen.Framework.System.BusinessLogic.IUserLoginHistoryManager,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Mapper.AutoMapperProfile">
+            <summary>
+            AutoMapper配置
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Mapper.AutoMapperProfile.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Mapper.ParameterIdToNameConverter">
+            <summary>
+            系统参数ID转为名称
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Mapper.ParameterIdToNameConverter.#ctor(BaoMen.Framework.System.BusinessLogic.IParameterManager)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="parameterManager">系统参数业务逻辑</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Mapper.ParameterIdToNameConverter.Convert(System.String,AutoMapper.ResolutionContext)">
+            <summary>
+            转换
+            </summary>
+            <param name="sourceMember"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Mapper.ParameterSourceMember">
+            <summary>
+            系统参数源数据
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Mapper.ParameterSourceMember.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="parentId">父ID</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Mapper.ParameterSourceMember.#ctor(System.String,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="parentId">父ID</param>
+            <param name="value">值</param>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Mapper.ParameterSourceMember.ParentId">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Mapper.ParameterSourceMember.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Mapper.ParameterValueToNameConverter">
+            <summary>
+            系统参数值-->名称转换器
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Mapper.ParameterValueToNameConverter.#ctor(BaoMen.Framework.System.BusinessLogic.IParameterManager)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="parameterManager">系统参数业务逻辑</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.System.Mapper.ParameterValueToNameConverter.Convert(BaoMen.Framework.Web.System.Mapper.ParameterSourceMember,AutoMapper.ResolutionContext)">
+            <summary>
+            转换
+            </summary>
+            <param name="sourceMember"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.Cache">
+            <summary>
+            缓存模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Cache.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Cache.MerchantId">
+            <summary>
+            商户ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CacheDetail">
+            <summary>
+            缓存详情
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CacheDetail.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CacheFilter">
+            <summary>
+            缓存过滤器
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CacheFilter.MerchantId">
+            <summary>
+            商户ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CacheFilter.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.City">
+            <summary>
+            地市信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.City.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.City.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.City.AreaCode">
+            <summary>
+            区号
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.City.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateCity">
+            <summary>
+            地市信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateCity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateCity.AreaCode">
+            <summary>
+            区号
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateCity.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateCity.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateCity">
+            <summary>
+            地市信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateCity.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateCity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateCity.AreaCode">
+            <summary>
+            区号
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateCity.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteCity">
+            <summary>
+            地市信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteCity.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.District">
+            <summary>
+            地区信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.District.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.District.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.District.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateDistrict">
+            <summary>
+            地区信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDistrict.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDistrict.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDistrict.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateDistrict">
+            <summary>
+            地区信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDistrict.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDistrict.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDistrict.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteDistrict">
+            <summary>
+            地区信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteDistrict.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DownloadFile">
+            <summary>
+            系统下载文件模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.Type">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.TypeName">
+            <summary>
+            文件类型名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.OriginalFileName">
+            <summary>
+            原始文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.ExtentionName">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.RelativePath">
+            <summary>
+            相对路径
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DownloadFile.RelatedId">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateDownloadFile">
+            <summary>
+            系统下载文件模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDownloadFile.Type">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDownloadFile.OriginalFileName">
+            <summary>
+            原始文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDownloadFile.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDownloadFile.ExtentionName">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDownloadFile.RelativePath">
+            <summary>
+            相对路径
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateDownloadFile.RelatedId">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateDownloadFile">
+            <summary>
+            系统下载文件模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDownloadFile.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDownloadFile.Type">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDownloadFile.OriginalFileName">
+            <summary>
+            原始文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDownloadFile.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDownloadFile.ExtentionName">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDownloadFile.RelativePath">
+            <summary>
+            相对路径
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateDownloadFile.RelatedId">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteDownloadFile">
+            <summary>
+            系统下载文件模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteDownloadFile.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.LoginRequest">
+            <summary>
+            登录请求参数
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.LoginRequest.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.LoginRequest.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.Module">
+            <summary>
+            系统模块模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.ParentId">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.VisibleIndex">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.Method">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.WorkflowActivityId">
+            <summary>
+            工作流活动ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.IsNode">
+            <summary>
+            是否节点
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Module.Children">
+            <summary>
+            子模块
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateModule">
+            <summary>
+            系统模块模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.ParentId">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.VisibleIndex">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.Method">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.WorkflowActivityId">
+            <summary>
+            工作流活动ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateModule.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateModule">
+            <summary>
+            系统模块模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.ParentId">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.VisibleIndex">
+            <summary>
+            显示顺序
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.Method">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.WorkflowActivityId">
+            <summary>
+            工作流活动ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateModule.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteModule">
+            <summary>
+            系统模块模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteModule.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.OperateHistory">
+            <summary>
+            系统操作日志模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.Id">
+            <summary>
+            流水号
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.UserId">
+            <summary>
+            系统用户ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.Type">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.OperateTime">
+            <summary>
+            操作时间
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.AssemblyName">
+            <summary>
+            程序集
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.EntityType">
+            <summary>
+            实体类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.RelatedId">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.OperateHistory.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.Parameter">
+            <summary>
+            系统参数模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Parameter.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Parameter.ParentId">
+            <summary>
+            父标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Parameter.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Parameter.Value">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Parameter.IsNode">
+            <summary>
+            是否节点
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Parameter.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Parameter.Children">
+            <summary>
+            子参数
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateParameter">
+            <summary>
+            系统参数模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateParameter.ParentId">
+            <summary>
+            父标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateParameter.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateParameter.Value">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateParameter.IsNode">
+            <summary>
+            是否节点
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateParameter.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateParameter">
+            <summary>
+            系统参数模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateParameter.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateParameter.ParentId">
+            <summary>
+            父标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateParameter.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateParameter.Value">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateParameter.IsNode">
+            <summary>
+            是否节点
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateParameter.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteParameter">
+            <summary>
+            系统参数模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteParameter.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.Province">
+            <summary>
+            省份信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Province.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Province.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Province.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateProvince">
+            <summary>
+            省份信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateProvince.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateProvince.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateProvince.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateProvince">
+            <summary>
+            省份信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateProvince.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateProvince.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateProvince.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteProvince">
+            <summary>
+            省份信息模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteProvince.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.Role">
+            <summary>
+            系统角色模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Role.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Role.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Role.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Role.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Role.ModuleIds">
+            <summary>
+            拥有的模块
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateRole">
+            <summary>
+            系统角色模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateRole.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateRole.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateRole.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateRole.ModuleIds">
+            <summary>
+            系统模块ID列表
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateRole">
+            <summary>
+            系统角色模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateRole.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateRole.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateRole.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateRole.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateRole.ModuleIds">
+            <summary>
+            系统模块ID列表
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteRole">
+            <summary>
+            系统角色模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteRole.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.TokenResponse">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.TokenResponse.Token">
+            <summary>
+            访问令牌
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.TokenResponse.Expires">
+            <summary>
+            访问令牌有效期（单位：秒）
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UploadFile">
+            <summary>
+            系统上传文件模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.Type">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.TypeName">
+            <summary>
+            文件类型名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.OriginalFileName">
+            <summary>
+            原始文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.ExtentionName">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.RelativePath">
+            <summary>
+            相对路径
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.CreateUserId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.CreateUserName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UploadFile.RelatedId">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateUploadFile">
+            <summary>
+            系统上传文件模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUploadFile.Type">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUploadFile.RelatedId">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUploadFile.File">
+            <summary>
+            文件
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.User">
+            <summary>
+            系统用户模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Mobile">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Email">
+            <summary>
+            电子邮件
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.WechatOpenId">
+            <summary>
+            微信OpenId
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.WechatMpOpenId">
+            <summary>
+            微信小程序OpenId
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.WechatUnionId">
+            <summary>
+            微信UnionId
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.DingTalkId">
+            <summary>
+            钉钉ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.AlipayId">
+            <summary>
+            支付宝ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.User.Roles">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateUser">
+            <summary>
+            系统用户模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.Mobile">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.Email">
+            <summary>
+            电子邮件
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUser.RoleIds">
+            <summary>
+            角色ID列表
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateUser">
+            <summary>
+            系统用户模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.Mobile">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.Email">
+            <summary>
+            电子邮件
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUser.RoleIds">
+            <summary>
+            角色ID列表
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteUser">
+            <summary>
+            系统用户模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteUser.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateUserPersonalSetting">
+            <summary>
+            个人设置修改
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserPersonalSetting.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserPersonalSetting.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserPersonalSetting.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserPersonalSetting.Email">
+            <summary>
+            电子邮件
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UserLoginHistory">
+            <summary>
+            系统用户登录历史模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.LoginTime">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.UserAgent">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.ClientIp">
+            <summary>
+            客户端IP
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.ServerIp">
+            <summary>
+            服务端IP
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.TypeName">
+            <summary>
+            类型名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UserLoginHistory.ResultName">
+            <summary>
+            结果名称
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory">
+            <summary>
+            系统用户登录历史模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.LoginTime">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.UserAgent">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.ClientIp">
+            <summary>
+            客户端IP
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.ServerIp">
+            <summary>
+            服务端IP
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateUserLoginHistory.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory">
+            <summary>
+            系统用户登录历史模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.LoginTime">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.UserAgent">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.ClientIp">
+            <summary>
+            客户端IP
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.ServerIp">
+            <summary>
+            服务端IP
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateUserLoginHistory.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteUserLoginHistory">
+            <summary>
+            系统用户登录历史模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteUserLoginHistory.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.Version">
+            <summary>
+            系统版本模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Version.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Version.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Version.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Version.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.Version.ModuleIds">
+            <summary>
+            模块ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.CreateVersion">
+            <summary>
+            系统版本模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateVersion.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateVersion.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateVersion.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.CreateVersion.ModuleIds">
+            <summary>
+            模块ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.UpdateVersion">
+            <summary>
+            系统版本模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateVersion.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateVersion.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateVersion.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateVersion.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.UpdateVersion.ModuleIds">
+            <summary>
+            模块ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.System.Models.DeleteVersion">
+            <summary>
+            系统版本模型
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.System.Models.DeleteVersion.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Util.BaseController">
+            <summary>
+            控制器基类
+            </summary>
+        </member>
+        <member name="F:BaoMen.Framework.Web.Util.BaseController.logger">
+            <summary>
+            日志实例
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController.GetRequiredService``1">
+            <summary>
+            从DI获取实例
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController.GetStartRowIndex(System.Int32,System.Int32)">
+            <summary>
+            获取其实索引
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController.CheckPageSize(System.Int32)">
+            <summary>
+            检查页大小
+            </summary>
+            <param name="pageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Util.BaseController`5">
+            <summary>
+            控制器基类
+            </summary>
+            <typeparam name="TKey">实体键的类型</typeparam>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TFilter">实体过滤器类型</typeparam>
+            <typeparam name="TModel">实体模型</typeparam>
+            <typeparam name="TManager">业务逻辑类型</typeparam>
+        </member>
+        <member name="F:BaoMen.Framework.Web.Util.BaseController`5.manager">
+            <summary>
+            业务逻辑实例
+            </summary>
+        </member>
+        <member name="F:BaoMen.Framework.Web.Util.BaseController`5.mapper">
+            <summary>
+            AutoMapper实例
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`5.#ctor(`4,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`5.DoGet``1(`0)">
+            <summary>
+            获取单个实例
+            </summary>
+            <param name="id">标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`5.DoGetList``1(`2,System.String)">
+            <summary>
+            获取实例的ICollection列表
+            </summary>
+            <param name="filter">过滤器</param>
+            <param name="sortExpression">排序字串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`5.DoGetListCount(`2)">
+            <summary>
+            获取数量
+            </summary>
+            <param name="filter">过滤器</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`5.GetList(`2,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取多个实例的数量和ICollection列表
+            </summary>
+            <param name="filter">过滤器</param>
+            <param name="sort">排序字串</param>
+            <param name="pageIndex">开始的页数（从1开始）</param>
+            <param name="pageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Util.BaseController`8">
+            <summary>
+            控制器基类
+            </summary>
+            <typeparam name="TKey">实体键的类型</typeparam>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TFilter">实体过滤器类型</typeparam>
+            <typeparam name="TModel">实体模型</typeparam>
+            <typeparam name="TCreate">创建实体模型</typeparam>
+            <typeparam name="TUpdate">更新实体模型</typeparam>
+            <typeparam name="TDelete">删除实体模型</typeparam>
+            <typeparam name="TManager">业务逻辑类型</typeparam>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`8.#ctor(`7,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`8.Create(`4)">
+            <summary>
+            创建数据
+            </summary>
+            <param name="model">创建模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`8.Update(`5)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="model">更新模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`8.Delete(`6)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="model">实体实例</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Util.BaseHierarchicalController`8">
+            <summary>
+            控制器基类
+            </summary>
+            <typeparam name="TKey">实体键的类型</typeparam>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TFilter">实体过滤器类型</typeparam>
+            <typeparam name="TModel">实体模型</typeparam>
+            <typeparam name="TCreate">创建实体模型</typeparam>
+            <typeparam name="TUpdate">更新实体模型</typeparam>
+            <typeparam name="TDelete">删除实体模型</typeparam>
+            <typeparam name="TManager">业务逻辑类型</typeparam>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseHierarchicalController`8.#ctor(`7,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manager">业务逻辑实例</param>
+            <param name="mapper">AutoMapper实例</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseHierarchicalController`8.GetChildren(`0)">
+            <summary>
+            获取子节点
+            </summary>
+            <param name="id">标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseHierarchicalController`8.GetAllChildren(`0)">
+            <summary>
+            获取所有子节点
+            </summary>
+            <param name="id">标识</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Util.Captcha">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Util.Captcha.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Util.Captcha.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Util.Captcha.FontSize">
+            <summary>
+            字体大小
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.Captcha.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.Captcha.GetCaptcha(System.Int32)">
+            <summary>
+            获取验证码
+            </summary>
+            <param name="length">长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.Captcha.Draw(System.String,System.IO.Stream)">
+            <summary>
+            绘制验证码
+            </summary>
+            <param name="captcha">验证码</param>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.Captcha.GetStringSize(System.String,System.Drawing.Font)">
+            <summary>
+            取得字符串的大小
+            </summary>
+            <param name="value">字符串的值</param>
+            <param name="font">字体信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Util.ControllerExtention">
+            <summary>
+            Contorller扩展类
+            </summary>
+        </member>
+        <member name="F:BaoMen.Framework.Web.Util.ControllerExtention.headerFieldIp">
+            <summary>
+            Http头IP字段
+            </summary>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.ControllerExtention.GetClientIp(Microsoft.AspNetCore.Mvc.ControllerBase)">
+            <summary>
+            获取客户端IP
+            </summary>
+            <param name="controller">控制器</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.ControllerExtention.GetServerIp(Microsoft.AspNetCore.Mvc.ControllerBase)">
+            <summary>
+            获取服务端IP
+            </summary>
+            <param name="controller">控制器</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.ControllerExtention.GetBorwserType(Microsoft.AspNetCore.Mvc.ControllerBase)">
+            <summary>
+            获取浏览器类型
+            </summary>
+            <param name="controller">控制器</param>
+            <returns></returns>
+        </member>
+        <member name="T:BaoMen.Framework.Web.Util.TotalAndItem`1">
+            <summary>
+            列表及数量
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Util.TotalAndItem`1.Total">
+            <summary>
+            数据总数
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Util.TotalAndItem`1.Items">
+            <summary>
+            数据
+            </summary>
+        </member>
+    </members>
+</doc>

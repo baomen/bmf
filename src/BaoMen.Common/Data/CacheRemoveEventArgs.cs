@@ -2,6 +2,9 @@
 
 namespace BaoMen.Common.Data
 {
+    /// <summary>
+    /// 缓存移除完成事件参数
+    /// </summary>
     public class CacheRemovedEventArgs : EventArgs
     {
         ///// <summary>
@@ -15,6 +18,9 @@ namespace BaoMen.Common.Data
         public string CacheKey { get; set; }
     }
 
+    /// <summary>
+    /// 缓存移除事件参数
+    /// </summary>
     public class CacheRemovingEventArgs : CacheRemovedEventArgs
     {
         /// <summary>
