@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>7a3a71cd-ec79-4319-ad22-89a5ad2f3d5d</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>BaoMen.Common</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Cache\CacheFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cache\CacheSynchronizeEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cache\ICache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cache\ISynchronizedCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cache\MemoryCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cache\RabbitMQSynchronizedCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cache\RemoteKey.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constant\Bracket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constant\DataOperationType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constant\DateTimeFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constant\DbCompareOperator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constant\DbLogicOperator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constant\LogicOperator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constant\SerializeType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converter\DateTimeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Attribute\DatabaseEntityAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Attribute\DatabaseEntityFilterAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\BusinessLogicBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\BusinessLogicException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\CacheRemoveEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DapperDataAccess.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DataAccessException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DataAccessFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DataOperationEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\DatabaseEntityFilterHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\DatabaseEntityHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\ExpressionHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IDataAccess.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IHierarchicalBusinessLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\LogEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\NoneRowModifiedException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\RedisDataAccess.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\BaseEncoding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DapperExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DynamicExtention.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\LinqExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\ObjectExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\StringExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\DapperCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\FilterProperty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\IHierarchicalData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\QuerySql.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ResponseData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\TextValue.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaoMen.Framework", "src\BaoMen.Framework\BaoMen.Framework.csproj", "{E58F6794-1967-434E-A5BA-886330A78558}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BaoMen.Common", "src\BaoMen.Common\BaoMen.Common.shproj", "{7A3A71CD-EC79-4319-AD22-89A5AD2F3D5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaoMen.Framework.Web", "src\BaoMen.Framework.Web\BaoMen.Framework.Web.csproj", "{19AAD64A-CB36-4332-8BEB-4FAEEBABEB39}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\BaoMen.Common\BaoMen.Common.projitems*{7a3a71cd-ec79-4319-ad22-89a5ad2f3d5d}*SharedItemsImports = 13
+		src\BaoMen.Common\BaoMen.Common.projitems*{e58f6794-1967-434e-a5ba-886330a78558}*SharedItemsImports = 5
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E58F6794-1967-434E-A5BA-886330A78558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E58F6794-1967-434E-A5BA-886330A78558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E58F6794-1967-434E-A5BA-886330A78558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E58F6794-1967-434E-A5BA-886330A78558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19AAD64A-CB36-4332-8BEB-4FAEEBABEB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19AAD64A-CB36-4332-8BEB-4FAEEBABEB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19AAD64A-CB36-4332-8BEB-4FAEEBABEB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19AAD64A-CB36-4332-8BEB-4FAEEBABEB39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C78BDB89-D7B5-47B6-9F57-EC313ED39AE8}
+	EndGlobalSection
+EndGlobal
