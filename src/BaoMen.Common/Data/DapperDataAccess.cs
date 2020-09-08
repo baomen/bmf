@@ -354,6 +354,13 @@ namespace BaoMen.Common.Data
             return base.GetStoredProcedureParameters(procedureName, connectionString, dbProviderFactory);
         }
 
+        /// <summary>
+        /// 添加参数
+        /// </summary>
+        /// <param name="columnName">字段名称</param>
+        /// <param name="propertyName">参数名称</param>
+        /// <param name="filterProperty">过滤器属性实例</param>
+        /// <param name="parameters">参数</param>
         protected virtual string AddParameter<T>(string columnName, string propertyName, FilterProperty<T> filterProperty, DynamicParameters parameters)
         {
             if (filterProperty == null || string.IsNullOrEmpty(propertyName) || string.IsNullOrEmpty(columnName)) return string.Empty;
@@ -406,7 +413,9 @@ namespace BaoMen.Common.Data
         /// </summary>
         /// <param name="stringBuilder"><see cref="StringBuilder"/>实例</param>
         /// <param name="columnName">字段名称</param>
+        /// <param name="propertyName">参数名称</param>
         /// <param name="filterProperty">过滤器属性实例</param>
+        /// <param name="parameters">参数</param>
         protected virtual void AddParameter<T>(StringBuilder stringBuilder, string columnName, string propertyName, FilterProperty<T> filterProperty, DynamicParameters parameters)
         {
             //if (filterProperty == null || string.IsNullOrEmpty(columnName)) return;
