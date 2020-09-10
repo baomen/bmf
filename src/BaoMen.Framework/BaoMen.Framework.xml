@@ -5584,13 +5584,24 @@
             <param name="dbProviderFactory"></param>
             <returns></returns>
         </member>
+        <member name="M:BaoMen.Common.Data.DapperDataAccess`3.AddParameter``1(System.String,System.String,BaoMen.Common.Model.FilterProperty{``0},Dapper.DynamicParameters)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="columnName">字段名称</param>
+            <param name="propertyName">参数名称</param>
+            <param name="filterProperty">过滤器属性实例</param>
+            <param name="parameters">参数</param>
+        </member>
         <member name="M:BaoMen.Common.Data.DapperDataAccess`3.AddParameter``1(System.Text.StringBuilder,System.String,System.String,BaoMen.Common.Model.FilterProperty{``0},Dapper.DynamicParameters)">
             <summary>
             添加参数
             </summary>
             <param name="stringBuilder"><see cref="T:System.Text.StringBuilder"/>实例</param>
             <param name="columnName">字段名称</param>
+            <param name="propertyName">参数名称</param>
             <param name="filterProperty">过滤器属性实例</param>
+            <param name="parameters">参数</param>
         </member>
         <member name="M:BaoMen.Common.Data.DapperDataAccess`3.#ctor(System.String,System.String)">
             <summary>
