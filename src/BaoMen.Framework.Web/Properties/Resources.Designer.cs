@@ -142,6 +142,24 @@ namespace BaoMen.Framework.Web.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 验证码不正确.
+        /// </summary>
+        public static string Error_10008 {
+            get {
+                return ResourceManager.GetString("Error_10008", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 手机验证码不正确.
+        /// </summary>
+        public static string Error_10009 {
+            get {
+                return ResourceManager.GetString("Error_10009", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 创建数据失败.
         /// </summary>
         public static string Error_1001 {
@@ -214,20 +232,11 @@ namespace BaoMen.Framework.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 验证码不正确.
+        ///   Looks up a localized string similar to Map数据失败.
         /// </summary>
         public static string Error_1009 {
             get {
                 return ResourceManager.GetString("Error_1009", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 手机验证码不正确.
-        /// </summary>
-        public static string Error_1010 {
-            get {
-                return ResourceManager.GetString("Error_1010", resourceCulture);
             }
         }
         

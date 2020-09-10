@@ -149,6 +149,16 @@
               Looks up a localized string similar to 用户已禁用.
             </summary>
         </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10008">
+            <summary>
+              Looks up a localized string similar to 验证码不正确.
+            </summary>
+        </member>
+        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_10009">
+            <summary>
+              Looks up a localized string similar to 手机验证码不正确.
+            </summary>
+        </member>
         <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1001">
             <summary>
               Looks up a localized string similar to 创建数据失败.
@@ -191,12 +201,7 @@
         </member>
         <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1009">
             <summary>
-              Looks up a localized string similar to 验证码不正确.
-            </summary>
-        </member>
-        <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_1010">
-            <summary>
-              Looks up a localized string similar to 手机验证码不正确.
+              Looks up a localized string similar to Map数据失败.
             </summary>
         </member>
         <member name="P:BaoMen.Framework.Web.Properties.Resources.Error_400">
@@ -1965,6 +1970,20 @@
             检查页大小
             </summary>
             <param name="pageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController.Execute(System.Action{BaoMen.Common.Model.ResponseData})">
+            <summary>
+            调用
+            </summary>
+            <typeparam name="T">返回的Data的类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController.Execute``1(System.Action{BaoMen.Common.Model.ResponseData{``0}})">
+            <summary>
+            调用
+            </summary>
+            <typeparam name="T">返回的Data的类型</typeparam>
             <returns></returns>
         </member>
         <member name="T:BaoMen.Framework.Web.Util.BaseController`5">

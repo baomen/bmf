@@ -67,6 +67,64 @@ namespace BaoMen.Framework.Web.Util
                 return 10;
             return pageSize;
         }
+
+        /// <summary>
+        /// 调用
+        /// </summary>
+        /// <typeparam name="T">返回的Data的类型</typeparam>
+        /// <returns></returns>
+        protected ResponseData Execute(Action<ResponseData> action = null)
+        {
+            ResponseData responseData = new ResponseData();
+            try
+            {
+                action?.Invoke(responseData);
+            }
+            catch (AutoMapperMappingException autoMapperMappingException)
+            {
+                responseData.ErrorNumber = 1009;
+                responseData.ErrorMessage = Properties.Resources.Error_1009;
+                //responseData.Exception = autoMapperMappingException;
+                logger.Error(autoMapperMappingException);
+            }
+            catch (Exception exception)
+            {
+                responseData.ErrorNumber = 1000;
+                responseData.ErrorMessage = Properties.Resources.Error_1000;
+                responseData.Exception = exception;
+                logger.Error(exception);
+            }
+            return responseData;
+        }
+
+        /// <summary>
+        /// 调用
+        /// </summary>
+        /// <typeparam name="T">返回的Data的类型</typeparam>
+        /// <returns></returns>
+        protected ResponseData<T> Execute<T>(Action<ResponseData<T>> action = null)
+        {
+            ResponseData<T> responseData = new ResponseData<T>();
+            try
+            {
+                action?.Invoke(responseData);
+            }
+            catch (AutoMapperMappingException autoMapperMappingException)
+            {
+                responseData.ErrorNumber = 1009;
+                responseData.ErrorMessage = Properties.Resources.Error_1009;
+                //responseData.Exception = autoMapperMappingException;
+                logger.Error(autoMapperMappingException);
+            }
+            catch (Exception exception)
+            {
+                responseData.ErrorNumber = 1000;
+                responseData.ErrorMessage = Properties.Resources.Error_1000;
+                responseData.Exception = exception;
+                logger.Error(exception);
+            }
+            return responseData;
+        }
     }
 
     /// <summary>
@@ -118,23 +176,31 @@ namespace BaoMen.Framework.Web.Util
         protected virtual ResponseData<T> DoGet<T>(TKey id)
             where T : class
         {
-            ResponseData<T> responseData = new ResponseData<T>();
-            try
+            return Execute<T>((responseData) =>
             {
                 TEntity entity = manager.Get(id);
                 if (entity != null)
                 {
                     responseData.Data = mapper.Map<T>(entity);
                 }
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            });
+            //ResponseData<T> responseData = new ResponseData<T>();
+            //try
+            //{
+            //    TEntity entity = manager.Get(id);
+            //    if (entity != null)
+            //    {
+            //        responseData.Data = mapper.Map<T>(entity);
+            //    }
+            //}
+            //catch (Exception exception)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = exception;
+            //    logger.Error(exception);
+            //}
+            //return responseData;
         }
 
         /// <summary>
@@ -147,18 +213,22 @@ namespace BaoMen.Framework.Web.Util
         protected virtual ResponseData<ICollection<T>> DoGetList<T>(TFilter filter, string sortExpression = null)
             where T : class
         {
-            ResponseData<ICollection<T>> responseData = new ResponseData<ICollection<T>>();
-            try
+            return Execute<ICollection<T>>((responseData) =>
             {
                 responseData.Data = mapper.Map<ICollection<T>>(manager.GetList(filter, sortExpression));
-            }
-            catch (Exception e)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = e;
-            }
-            return responseData;
+            });
+            //ResponseData<ICollection<T>> responseData = new ResponseData<ICollection<T>>();
+            //try
+            //{
+            //    responseData.Data = mapper.Map<ICollection<T>>(manager.GetList(filter, sortExpression));
+            //}
+            //catch (Exception e)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = e;
+            //}
+            //return responseData;
         }
 
         /// <summary>
@@ -168,18 +238,22 @@ namespace BaoMen.Framework.Web.Util
         /// <returns></returns>
         protected virtual ResponseData<int> DoGetListCount(TFilter filter)
         {
-            ResponseData<int> responseData = new ResponseData<int>();
-            try
+            return Execute<int>((responseData) =>
             {
                 responseData.Data = manager.GetListCount(filter);
-            }
-            catch (Exception e)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = e;
-            }
-            return responseData;
+            });
+            //ResponseData<int> responseData = new ResponseData<int>();
+            //try
+            //{
+            //    responseData.Data = manager.GetListCount(filter);
+            //}
+            //catch (Exception e)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = e;
+            //}
+            //return responseData;
         }
         #endregion
 
@@ -194,8 +268,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpGet]
         public virtual ResponseData<TotalAndItem<TModel>> GetList([FromQuery] TFilter filter, string sort, int pageIndex = 1, int pageSize = 10)
         {
-            ResponseData<TotalAndItem<TModel>> responseData = new ResponseData<TotalAndItem<TModel>>();
-            try
+            return Execute<TotalAndItem<TModel>>((responseData) =>
             {
                 pageSize = CheckPageSize(pageSize);
                 Tuple<int, ICollection<TEntity>> entityListAndCount = manager.GetCountAndList(filter, sort, GetStartRowIndex(pageIndex, pageSize), pageSize);
@@ -204,15 +277,26 @@ namespace BaoMen.Framework.Web.Util
                     Total = entityListAndCount.Item1,
                     Items = mapper.Map<ICollection<TModel>>(entityListAndCount.Item2)
                 };
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            });
+            //ResponseData<TotalAndItem<TModel>> responseData = new ResponseData<TotalAndItem<TModel>>();
+            //try
+            //{
+            //    pageSize = CheckPageSize(pageSize);
+            //    Tuple<int, ICollection<TEntity>> entityListAndCount = manager.GetCountAndList(filter, sort, GetStartRowIndex(pageIndex, pageSize), pageSize);
+            //    responseData.Data = new TotalAndItem<TModel>
+            //    {
+            //        Total = entityListAndCount.Item1,
+            //        Items = mapper.Map<ICollection<TModel>>(entityListAndCount.Item2)
+            //    };
+            //}
+            //catch (Exception exception)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = exception;
+            //    logger.Error(exception);
+            //}
+            //return responseData;
         }
 
         #endregion
@@ -261,8 +345,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpPost]
         public virtual ResponseData<TModel> Create([FromBody] TCreate model)
         {
-            ResponseData<TModel> responseData = new ResponseData<TModel>();
-            try
+            return Execute<TModel>((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
                 int rows = manager.Insert(entity);
@@ -274,15 +357,37 @@ namespace BaoMen.Framework.Web.Util
                     responseData.ErrorMessage = Properties.Resources.Error_1001;
                     logger.Warn("Create Warn: inert rows=0, model={model}", model);
                 }
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            });
+            //ResponseData<TModel> responseData = new ResponseData<TModel>();
+            //ResponseData<TModel> responseData = new ResponseData<TModel>();
+            //try
+            //{
+            //    TEntity entity = mapper.Map<TEntity>(model);
+            //    int rows = manager.Insert(entity);
+            //    if (rows > 0)
+            //        responseData.Data = mapper.Map<TModel>(entity);
+            //    else
+            //    {
+            //        responseData.ErrorNumber = 1001;
+            //        responseData.ErrorMessage = Properties.Resources.Error_1001;
+            //        logger.Warn("Create Warn: inert rows=0, model={model}", model);
+            //    }
+            //}
+            //catch (Exception exception)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    //responseData.Exception = exception;
+            //    string e = Newtonsoft.Json.JsonConvert.SerializeObject(exception, new Newtonsoft.Json.JsonSerializerSettings
+            //    {
+            //        DateFormatString = "yyyy-MM-dd HH:mm:ss",
+            //        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore,
+            //        MaxDepth = 10,
+            //        PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects
+            //    });
+            //    logger.Error(exception);
+            //}
+            //return responseData;
         }
 
         /// <summary>
@@ -293,8 +398,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpPut]
         public virtual ResponseData Update([FromBody] TUpdate model)
         {
-            ResponseData responseData = new ResponseData();
-            try
+            return Execute((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
                 int rows = manager.Update(entity);
@@ -304,15 +408,27 @@ namespace BaoMen.Framework.Web.Util
                     responseData.ErrorMessage = Properties.Resources.Error_1002;
                     logger.Warn("Update Warn: inert rows=0, model={model}", model);
                 }
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            });
+            //ResponseData responseData = new ResponseData();
+            //try
+            //{
+            //    TEntity entity = mapper.Map<TEntity>(model);
+            //    int rows = manager.Update(entity);
+            //    if (rows == 0)
+            //    {
+            //        responseData.ErrorNumber = 1002;
+            //        responseData.ErrorMessage = Properties.Resources.Error_1002;
+            //        logger.Warn("Update Warn: inert rows=0, model={model}", model);
+            //    }
+            //}
+            //catch (Exception exception)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = exception;
+            //    logger.Error(exception);
+            //}
+            //return responseData;
         }
 
         /// <summary>
@@ -324,8 +440,7 @@ namespace BaoMen.Framework.Web.Util
         //[System.Web.Http.Cors.DisableCors]
         public virtual ResponseData Delete([FromBody] TDelete model)
         {
-            ResponseData responseData = new ResponseData();
-            try
+            return Execute((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
                 int rows = manager.Delete(entity);
@@ -335,15 +450,27 @@ namespace BaoMen.Framework.Web.Util
                     responseData.ErrorMessage = Properties.Resources.Error_1003;
                     logger.Warn("Delete Warn: inert rows=0, model={model}", model);
                 }
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            });
+            //ResponseData responseData = new ResponseData();
+            //try
+            //{
+            //    TEntity entity = mapper.Map<TEntity>(model);
+            //    int rows = manager.Delete(entity);
+            //    if (rows == 0)
+            //    {
+            //        responseData.ErrorNumber = 1003;
+            //        responseData.ErrorMessage = Properties.Resources.Error_1003;
+            //        logger.Warn("Delete Warn: inert rows=0, model={model}", model);
+            //    }
+            //}
+            //catch (Exception exception)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = exception;
+            //    logger.Error(exception);
+            //}
+            //return responseData;
         }
         #endregion
     }
@@ -386,19 +513,23 @@ namespace BaoMen.Framework.Web.Util
         [HttpGet]
         public virtual ResponseData<ICollection<TModel>> GetChildren([FromQuery] TKey id)
         {
-            ResponseData<ICollection<TModel>> responseData = new ResponseData<ICollection<TModel>>();
-            try
+            return Execute<ICollection<TModel>>((responseData) =>
             {
                 responseData.Data = mapper.Map<ICollection<TModel>>(manager.GetChildren(id));
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            });
+            //ResponseData<ICollection<TModel>> responseData = new ResponseData<ICollection<TModel>>();
+            //try
+            //{
+            //    responseData.Data = mapper.Map<ICollection<TModel>>(manager.GetChildren(id));
+            //}
+            //catch (Exception exception)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = exception;
+            //    logger.Error(exception);
+            //}
+            //return responseData;
         }
 
         /// <summary>
@@ -409,19 +540,23 @@ namespace BaoMen.Framework.Web.Util
         [HttpGet]
         public virtual ResponseData<ICollection<TModel>> GetAllChildren([FromQuery] TKey id)
         {
-            ResponseData<ICollection<TModel>> responseData = new ResponseData<ICollection<TModel>>();
-            try
+            return Execute<ICollection<TModel>>((responseData) =>
             {
                 responseData.Data = mapper.Map<ICollection<TModel>>(manager.GetAllChildren(id));
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            });
+            //ResponseData<ICollection<TModel>> responseData = new ResponseData<ICollection<TModel>>();
+            //try
+            //{
+            //    responseData.Data = mapper.Map<ICollection<TModel>>(manager.GetAllChildren(id));
+            //}
+            //catch (Exception exception)
+            //{
+            //    responseData.ErrorNumber = 1000;
+            //    responseData.ErrorMessage = Properties.Resources.Error_1000;
+            //    responseData.Exception = exception;
+            //    logger.Error(exception);
+            //}
+            //return responseData;
         }
     }
 }
