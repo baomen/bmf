@@ -11,6 +11,7 @@ using System;
 using System.Data;
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BaoMen.Framework.System.DataAccess
 {
@@ -124,7 +125,7 @@ namespace BaoMen.Framework.System.DataAccess
 
     public partial class RoleModule
     {
-      
+
         /// <summary>
         /// 批量插入
         /// </summary>
@@ -136,20 +137,20 @@ namespace BaoMen.Framework.System.DataAccess
             return ProcessInsert(() =>
             {
                 string sql = $"INSERT INTO {TableName} (RoleId,ModuleId) VALUES ";
-                for (int i = 0; i < roleModules.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        sql += $"(\"{roleModules[i].RoleId}\",\"{roleModules[i].ModuleId}\")";
-                    }
-                    else
-                        sql += $",(\"{roleModules[i].RoleId}\",\"{roleModules[i].ModuleId}\")";
-
-                }
+                sql += string.Join(',', roleModules.Select(p => $"('{p.RoleId}','{p.ModuleId}')"));
+                //for (int i = 0; i < roleModules.Count; i++)
+                //{
+                //    if (i == 0)
+                //    {
+                //        sql += $"(\"{roleModules[i].RoleId}\",\"{roleModules[i].ModuleId}\")";
+                //    }
+                //    else
+                //        sql += $",(\"{roleModules[i].RoleId}\",\"{roleModules[i].ModuleId}\")";
+                //}
                 DapperCommand command = new DapperCommand
                 {
-                 CommandText = sql,
-                 Transaction = transaction
+                    CommandText = sql,
+                    Transaction = transaction
                 };
                 return transaction.Connection.Execute(command);
 
