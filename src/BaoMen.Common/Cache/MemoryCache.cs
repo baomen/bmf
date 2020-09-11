@@ -8,7 +8,7 @@ namespace BaoMen.Common.Cache
     /// </summary>
     public class MemoryCache : ICache
     {
-        private static Microsoft.Extensions.Caching.Memory.MemoryCache memoryCache = new Microsoft.Extensions.Caching.Memory.MemoryCache(new MemoryCacheOptions());
+        private readonly static Microsoft.Extensions.Caching.Memory.MemoryCache memoryCache = new Microsoft.Extensions.Caching.Memory.MemoryCache(new MemoryCacheOptions());
 
         /// <summary>
         /// 获取缓存的数据

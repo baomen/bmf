@@ -202,32 +202,38 @@ namespace BaoMen.Common.Extension
             command.CommandText = $"{command.CommandText} LIMIT {startRowIndex},{maximumRows}";
         }
 
+        /// <summary>
+        /// 获取int类型的标识
+        /// </summary>
+        /// <param name="connection">数据库链接</param>
+        /// <param name="transaction">数据库事务</param>
+        /// <returns></returns>
         public static int GetIntIdentity(this IDbConnection connection, IDbTransaction transaction)
         {
-            switch (connection)
+            return connection switch
             {
                 //case MySql.Data.MySqlClient.MySqlConnection conn:
-                case MySqlConnector.MySqlConnection conn:
-                    return connection.ExecuteScalar<int>(sql: "SELECT @@IDENTITY", transaction: transaction);
-                case System.Data.SqlClient.SqlConnection conn:
-                    return conn.ExecuteScalar<int>(sql: "select @@identity", transaction: transaction);
-                default:
-                    throw new System.NotSupportedException($"not supported database type : {connection.GetType().FullName}");
-            }
+                MySqlConnector.MySqlConnection conn => conn.ExecuteScalar<int>(sql: "SELECT @@IDENTITY", transaction: transaction),
+                System.Data.SqlClient.SqlConnection conn => conn.ExecuteScalar<int>(sql: "select @@identity", transaction: transaction),
+                _ => throw new System.NotSupportedException($"not supported database type : {connection.GetType().FullName}"),
+            };
         }
 
+        /// <summary>
+        /// 获取long类型的标识
+        /// </summary>
+        /// <param name="connection">数据库链接</param>
+        /// <param name="transaction">数据库事务</param>
+        /// <returns></returns>
         public static long GetLongIdentity(this IDbConnection connection, IDbTransaction transaction)
         {
-            switch (connection)
+            return connection switch
             {
                 //case MySql.Data.MySqlClient.MySqlConnection conn:
-                case MySqlConnector.MySqlConnection conn:
-                    return conn.ExecuteScalar<long>(sql: "SELECT @@IDENTITY", transaction: transaction);
-                case System.Data.SqlClient.SqlConnection conn:
-                    return conn.ExecuteScalar<long>(sql: "select @@identity", transaction: transaction);
-                default:
-                    throw new System.NotSupportedException($"not supported database type : {connection.GetType().FullName}");
-            }
+                MySqlConnector.MySqlConnection conn => conn.ExecuteScalar<long>(sql: "SELECT @@IDENTITY", transaction: transaction),
+                System.Data.SqlClient.SqlConnection conn => conn.ExecuteScalar<long>(sql: "select @@identity", transaction: transaction),
+                _ => throw new System.NotSupportedException($"not supported database type : {connection.GetType().FullName}"),
+            };
         }
 
         /// <summary>

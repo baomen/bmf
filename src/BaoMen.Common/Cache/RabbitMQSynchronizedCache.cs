@@ -17,10 +17,10 @@ namespace BaoMen.Common.Cache
         private const string exchangeName = "baomen.cache";
         private const string cacheRemoveRoutingName = "baomen.cache.removed";
 
-        IConnection queueConnection;
-        private IModel channel;
+        private readonly IConnection queueConnection;
+        private readonly IModel channel;
 
-        private Dictionary<string, string> keyMapDictionary = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> keyMapDictionary = new Dictionary<string, string>();
         private readonly string guid = Guid.NewGuid().ToString();
 
         public event EventHandler<CacheSynchronizingEventArgs> OnSynchronizing;
@@ -44,8 +44,10 @@ namespace BaoMen.Common.Cache
             //string queuePartialName = configuration.GetSection("Cache:RabbitMQSynchronizedCacheConfig")["QueuePartialName"];
             //string queueName = $"{exchangeName}.{ queuePartialName}";
             string queueName = $"{exchangeName}.{partialQueueName}.{guid}";
-            var factory = new ConnectionFactory();
-            factory.Uri = new Uri(connectionString);
+            var factory = new ConnectionFactory
+            {
+                Uri = new Uri(connectionString)
+            };
             queueConnection = factory.CreateConnection();
             channel = queueConnection.CreateModel();
             channel.ExchangeDeclare(exchange: exchangeName, type: "direct", durable: true);

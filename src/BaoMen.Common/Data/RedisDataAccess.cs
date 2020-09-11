@@ -68,18 +68,14 @@ namespace BaoMen.Common.Data
         /// <returns></returns>
         protected TValue Deserialize(RedisValue value, SerializeType serializeType = SerializeType.Json)
         {
-            switch (serializeType)
+            return serializeType switch
             {
-                case SerializeType.Json:
-                    return Newtonsoft.Json.JsonConvert.DeserializeObject<TValue>(value);
-                    //return System.Text.Json.JsonSerializer.Deserialize<TValue>(value);
-                case SerializeType.Binary:
-                    return Extension.ObjectExtension.TryDeserialize<TValue>(value);
-                case SerializeType.Xml:
-                    return Extension.ObjectExtension.DeserializeXml<TValue>(value);
-                default:
-                    throw new System.ArgumentException("not support serializetype");
-            }
+                SerializeType.Json => Newtonsoft.Json.JsonConvert.DeserializeObject<TValue>(value),
+                //return System.Text.Json.JsonSerializer.Deserialize<TValue>(value);
+                SerializeType.Binary => Extension.ObjectExtension.TryDeserialize<TValue>(value),
+                SerializeType.Xml => Extension.ObjectExtension.DeserializeXml<TValue>(value),
+                _ => throw new System.ArgumentException("not support serializetype"),
+            };
         }
 
         /// <summary>
@@ -90,18 +86,14 @@ namespace BaoMen.Common.Data
         /// <returns></returns>
         protected RedisValue Serialize(TValue value, SerializeType serializeType = SerializeType.Json)
         {
-            switch (serializeType)
+            return serializeType switch
             {
-                case SerializeType.Json:
-                    return Newtonsoft.Json.JsonConvert.SerializeObject(value);
-                    //return System.Text.Json.JsonSerializer.Serialize(value);
-                case SerializeType.Binary:
-                    return Extension.ObjectExtension.Serialize(value);
-                case SerializeType.Xml:
-                    return Extension.ObjectExtension.SerializeXml(value);
-                default:
-                    throw new System.ArgumentException("not support serializetype");
-            }
+                SerializeType.Json => Newtonsoft.Json.JsonConvert.SerializeObject(value),
+                //return System.Text.Json.JsonSerializer.Serialize(value);
+                SerializeType.Binary => Extension.ObjectExtension.Serialize(value),
+                SerializeType.Xml => Extension.ObjectExtension.SerializeXml(value),
+                _ => throw new System.ArgumentException("not support serializetype"),
+            };
         }
 
         /// <summary>
@@ -203,7 +195,6 @@ namespace BaoMen.Common.Data
         {
             IConnectionMultiplexer connectionMultiplexer = GetConnectionMultiplexer();
             IServer server = connectionMultiplexer.GetServer(connectionMultiplexer.GetEndPoints()[0]);
-            RedisValue redisValue = pattern;
             return server.Keys(database: database, pattern: pattern, pageSize: pageSize, cursor: cursor, pageOffset: pageOffset, flags: flags);
         }
     }

@@ -7036,6 +7036,22 @@
             Dapper扩展
             </summary>
         </member>
+        <member name="M:BaoMen.Common.Extension.DapperExtension.GetIntIdentity(System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            获取int类型的标识
+            </summary>
+            <param name="connection">数据库链接</param>
+            <param name="transaction">数据库事务</param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Common.Extension.DapperExtension.GetLongIdentity(System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            获取long类型的标识
+            </summary>
+            <param name="connection">数据库链接</param>
+            <param name="transaction">数据库事务</param>
+            <returns></returns>
+        </member>
         <member name="M:BaoMen.Common.Extension.DapperExtension.CreateCommandDefine(BaoMen.Common.Model.DapperCommand)">
             <summary>
             创建CommandDefinition实例

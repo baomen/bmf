@@ -71,11 +71,12 @@ namespace BaoMen.Framework.Web.Util
         /// <summary>
         /// 调用
         /// </summary>
-        /// <typeparam name="T">返回的Data的类型</typeparam>
+        /// <typeparam name="T">返回的类型</typeparam>
         /// <returns></returns>
-        protected ResponseData Execute(Action<ResponseData> action = null)
+        private T Invoke<T>(Action<T> action = null)
+            where T : ResponseData, new()
         {
-            ResponseData responseData = new ResponseData();
+            T responseData = new T();
             try
             {
                 action?.Invoke(responseData);
@@ -100,30 +101,20 @@ namespace BaoMen.Framework.Web.Util
         /// <summary>
         /// 调用
         /// </summary>
+        /// <returns></returns>
+        protected ResponseData Invoke(Action<ResponseData> action = null)
+        {
+            return Invoke<ResponseData>(action);
+        }
+
+        /// <summary>
+        /// 调用
+        /// </summary>
         /// <typeparam name="T">返回的Data的类型</typeparam>
         /// <returns></returns>
-        protected ResponseData<T> Execute<T>(Action<ResponseData<T>> action = null)
+        protected ResponseData<T> Invoke<T>(Action<ResponseData<T>> action = null)
         {
-            ResponseData<T> responseData = new ResponseData<T>();
-            try
-            {
-                action?.Invoke(responseData);
-            }
-            catch (AutoMapperMappingException autoMapperMappingException)
-            {
-                responseData.ErrorNumber = 1009;
-                responseData.ErrorMessage = Properties.Resources.Error_1009;
-                //responseData.Exception = autoMapperMappingException;
-                logger.Error(autoMapperMappingException);
-            }
-            catch (Exception exception)
-            {
-                responseData.ErrorNumber = 1000;
-                responseData.ErrorMessage = Properties.Resources.Error_1000;
-                responseData.Exception = exception;
-                logger.Error(exception);
-            }
-            return responseData;
+            return Invoke<ResponseData<T>>(action);
         }
     }
 
@@ -176,7 +167,7 @@ namespace BaoMen.Framework.Web.Util
         protected virtual ResponseData<T> DoGet<T>(TKey id)
             where T : class
         {
-            return Execute<T>((responseData) =>
+            return Invoke<T>((responseData) =>
             {
                 TEntity entity = manager.Get(id);
                 if (entity != null)
@@ -213,7 +204,7 @@ namespace BaoMen.Framework.Web.Util
         protected virtual ResponseData<ICollection<T>> DoGetList<T>(TFilter filter, string sortExpression = null)
             where T : class
         {
-            return Execute<ICollection<T>>((responseData) =>
+            return Invoke<ICollection<T>>((responseData) =>
             {
                 responseData.Data = mapper.Map<ICollection<T>>(manager.GetList(filter, sortExpression));
             });
@@ -238,7 +229,7 @@ namespace BaoMen.Framework.Web.Util
         /// <returns></returns>
         protected virtual ResponseData<int> DoGetListCount(TFilter filter)
         {
-            return Execute<int>((responseData) =>
+            return Invoke<int>((responseData) =>
             {
                 responseData.Data = manager.GetListCount(filter);
             });
@@ -268,7 +259,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpGet]
         public virtual ResponseData<TotalAndItem<TModel>> GetList([FromQuery] TFilter filter, string sort, int pageIndex = 1, int pageSize = 10)
         {
-            return Execute<TotalAndItem<TModel>>((responseData) =>
+            return Invoke<TotalAndItem<TModel>>((responseData) =>
             {
                 pageSize = CheckPageSize(pageSize);
                 Tuple<int, ICollection<TEntity>> entityListAndCount = manager.GetCountAndList(filter, sort, GetStartRowIndex(pageIndex, pageSize), pageSize);
@@ -345,7 +336,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpPost]
         public virtual ResponseData<TModel> Create([FromBody] TCreate model)
         {
-            return Execute<TModel>((responseData) =>
+            return Invoke<TModel>((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
                 int rows = manager.Insert(entity);
@@ -398,7 +389,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpPut]
         public virtual ResponseData Update([FromBody] TUpdate model)
         {
-            return Execute((responseData) =>
+            return Invoke((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
                 int rows = manager.Update(entity);
@@ -440,7 +431,7 @@ namespace BaoMen.Framework.Web.Util
         //[System.Web.Http.Cors.DisableCors]
         public virtual ResponseData Delete([FromBody] TDelete model)
         {
-            return Execute((responseData) =>
+            return Invoke((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
                 int rows = manager.Delete(entity);
@@ -513,7 +504,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpGet]
         public virtual ResponseData<ICollection<TModel>> GetChildren([FromQuery] TKey id)
         {
-            return Execute<ICollection<TModel>>((responseData) =>
+            return Invoke<ICollection<TModel>>((responseData) =>
             {
                 responseData.Data = mapper.Map<ICollection<TModel>>(manager.GetChildren(id));
             });
@@ -540,7 +531,7 @@ namespace BaoMen.Framework.Web.Util
         [HttpGet]
         public virtual ResponseData<ICollection<TModel>> GetAllChildren([FromQuery] TKey id)
         {
-            return Execute<ICollection<TModel>>((responseData) =>
+            return Invoke<ICollection<TModel>>((responseData) =>
             {
                 responseData.Data = mapper.Map<ICollection<TModel>>(manager.GetAllChildren(id));
             });

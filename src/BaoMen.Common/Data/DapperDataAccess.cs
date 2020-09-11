@@ -61,16 +61,13 @@ namespace BaoMen.Common.Data
             if (string.IsNullOrEmpty(providerName)) throw new ArgumentNullException("providerName");
 
             string providerLowerName = providerName.ToLower();
-            switch (providerLowerName)
+            return providerLowerName switch
             {
-                case "mysql.data.mysqlclient":
-                    return MySqlConnector.MySqlConnectorFactory.Instance;
+                "mysql.data.mysqlclient" => MySqlConnector.MySqlConnectorFactory.Instance,
                 //return MySql.Data.MySqlClient.MySqlClientFactory.Instance;
-                case "system.data.sqlclient":
-                    return System.Data.SqlClient.SqlClientFactory.Instance;
-                default:
-                    throw new NotImplementedException($"unsupported provider factory {providerName}");
-            }
+                "system.data.sqlclient" => System.Data.SqlClient.SqlClientFactory.Instance,
+                _ => throw new NotImplementedException($"unsupported provider factory {providerName}"),
+            };
         }
 
         /// <summary>

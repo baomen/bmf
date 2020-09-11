@@ -1347,22 +1347,14 @@ namespace BaoMen.Common.Data
                 {
                     if (constantValueExpression.Type == typeof(string))
                     {
-                        switch (compareOperator)
+                        newExpression = compareOperator switch
                         {
-                            case DbCompareOperator.StartWith:
-                                newExpression = Expression.Call(propertyExpressioin, typeof(string).GetMethod("StartsWith", new Type[] { typeof(string) }), new Expression[] { constantValueExpression });
-                                break;
-                            case DbCompareOperator.EndWith:
-                                newExpression = Expression.Call(propertyExpressioin, typeof(string).GetMethod("EndsWith", new Type[] { typeof(string) }), new Expression[] { constantValueExpression });
-                                break;
-                            case DbCompareOperator.Contains:
-                                //newExpression = Expression.Call(propertyExpressioin, typeof(string).GetMethod("IndexOf", new Type[] { typeof(string) }), new Expression[] { constantValueExpression });
-                                //newExpression = Expression.MakeBinary(ExpressionType.NotEqual, newExpression, Expression.Constant(-1));
-                                newExpression = Expression.Call(propertyExpressioin, typeof(string).GetMethod("Contains", new Type[] { typeof(string) }), new Expression[] { constantValueExpression });
-                                break;
-                            default:
-                                throw new ArgumentException("valueExpression.Value type must be string", "valueExpression");
-                        }
+                            DbCompareOperator.StartWith => Expression.Call(propertyExpressioin, typeof(string).GetMethod("StartsWith", new Type[] { typeof(string) }), new Expression[] { constantValueExpression }),
+                            DbCompareOperator.EndWith => Expression.Call(propertyExpressioin, typeof(string).GetMethod("EndsWith", new Type[] { typeof(string) }), new Expression[] { constantValueExpression }),
+                            DbCompareOperator.Contains => Expression.Call(propertyExpressioin, typeof(string).GetMethod("Contains", new Type[] { typeof(string) }), new Expression[] { constantValueExpression }),//newExpression = Expression.Call(propertyExpressioin, typeof(string).GetMethod("IndexOf", new Type[] { typeof(string) }), new Expression[] { constantValueExpression });
+                                                                                                                                                                                                                  //newExpression = Expression.MakeBinary(ExpressionType.NotEqual, newExpression, Expression.Constant(-1));
+                            _ => throw new ArgumentException("valueExpression.Value type must be string", "valueExpression"),
+                        };
                         Expression equalExpr = Expression.NotEqual(
                             propertyExpressioin,
                             Expression.Constant(null)
