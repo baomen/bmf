@@ -34,12 +34,39 @@ namespace BaoMen.Common.Data
         protected readonly Type type;
 
         /// <summary>
+        /// 数据库的Provider工厂实例
+        /// </summary>
+        protected readonly DbProviderFactory dbProviderFactory;
+
+        /// <summary>
+        /// 数据库链接串
+        /// </summary>
+        protected readonly string connectionString;
+
+        /// <summary>
         /// 默认构造函数
         /// </summary>
         public DapperDataAccess()
         {
             type = GetType();
             logger = LogManager.GetLogger(type.FullName);
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="connectionString">数据库连接串</param>
+        /// <param name="providerName">数据库提供程序名称</param>
+        public DapperDataAccess(string connectionString, string providerName) : this()
+        {
+            //.net core 不支持
+            //dbProviderFactory = DbProviderFactories.GetFactory(providerName);
+            if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(providerName))
+            {
+                throw new ArgumentNullException("connectionString", "connectionString is null or providerName is null.");
+            }
+            dbProviderFactory = GetDbProviderFactory(providerName);
+            this.connectionString = connectionString;
         }
 
         /// <summary>
@@ -132,13 +159,17 @@ namespace BaoMen.Common.Data
         /// 获取存储过程的参数（注意：要链接数据库，高耗费资源的操作）
         /// </summary>
         /// <param name="procedureName"></param>
+        /// <param name="connectionString">数据库连接串</param>
         /// <param name="dbProviderFactory"></param>
         /// <returns></returns>
-        protected virtual DbParameterCollection GetStoredProcedureParameters(string procedureName, string connectionString, DbProviderFactory dbProviderFactory)
+        protected virtual DbParameterCollection GetStoredProcedureParameters(string procedureName, string connectionString = null, DbProviderFactory dbProviderFactory = null)
         {
+
             if (string.IsNullOrEmpty(procedureName)) throw new ArgumentNullException("procedureName");
-            if (string.IsNullOrEmpty(connectionString)) throw new ArgumentNullException("connectionString");
-            if (dbProviderFactory == null) throw new ArgumentNullException("dbProviderFactory");
+            //if (string.IsNullOrEmpty(connectionString)) throw new ArgumentNullException("connectionString");
+            // if (dbProviderFactory == null) throw new ArgumentNullException("dbProviderFactory");
+            if (string.IsNullOrEmpty(connectionString)) connectionString = this.connectionString;
+            if (dbProviderFactory == null) dbProviderFactory = this.dbProviderFactory;
             string cacheKey = $"DatabaseProcedureParameters_{procedureName}";
             DbParameterCollection cachedDbParameterCollection = memoryCache.Get<DbParameterCollection>(cacheKey);
             if (cachedDbParameterCollection == null)
@@ -159,6 +190,17 @@ namespace BaoMen.Common.Data
                 memoryCache.Set(cacheKey, cachedDbParameterCollection, new MemoryCacheEntryOptions() { SlidingExpiration = TimeSpan.FromMinutes(5) });
             }
             return cachedDbParameterCollection;
+        }
+
+        /// <summary>
+        /// 创建默认的数据库链接
+        /// </summary>
+        /// <returns></returns>
+        public IDbConnection CreateConnection()
+        {
+            IDbConnection dbConnection = dbProviderFactory.CreateConnection();
+            dbConnection.ConnectionString = connectionString;
+            return dbConnection;
         }
 
         #region process CRUD
@@ -315,40 +357,15 @@ namespace BaoMen.Common.Data
         /// </summary>
         protected abstract string TableName { get; }
 
-        /// <summary>
-        /// 数据库的Provider工厂实例
-        /// </summary>
-        protected readonly DbProviderFactory dbProviderFactory;
 
         /// <summary>
-        /// 数据库链接串
+        /// 构造函数
         /// </summary>
-        protected readonly string connectionString;
-
-        /// <summary>
-        /// 创建默认的数据库链接
-        /// </summary>
-        /// <returns></returns>
-        public IDbConnection CreateConnection()
+        /// <param name="connectionString">数据库连接串</param>
+        /// <param name="providerName">数据库提供程序名称</param>
+        public DapperDataAccess(string connectionString, string providerName) : base(connectionString, providerName)
         {
-            IDbConnection dbConnection = dbProviderFactory.CreateConnection();
-            dbConnection.ConnectionString = connectionString;
-            return dbConnection;
-        }
 
-        /// <summary>
-        /// 获取存储过程的参数（注意：要链接数据库，高耗费资源的操作）
-        /// </summary>
-        /// <param name="procedureName"></param>
-        /// <param name="dbProviderFactory"></param>
-        /// <returns></returns>
-        protected override DbParameterCollection GetStoredProcedureParameters(string procedureName, string connectionString = null, DbProviderFactory dbProviderFactory = null)
-        {
-            if (string.IsNullOrEmpty(connectionString))
-                connectionString = this.connectionString;
-            if (dbProviderFactory == null)
-                dbProviderFactory = this.dbProviderFactory;
-            return base.GetStoredProcedureParameters(procedureName, connectionString, dbProviderFactory);
         }
 
         /// <summary>
@@ -418,23 +435,6 @@ namespace BaoMen.Common.Data
             //if (filterProperty == null || string.IsNullOrEmpty(columnName)) return;
             if (filterProperty == null || string.IsNullOrEmpty(propertyName) || string.IsNullOrEmpty(columnName)) return;
             stringBuilder.Append(AddParameter(columnName, propertyName, filterProperty, parameters));
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        /// <param name="connectionString">数据库连接串</param>
-        /// <param name="providerName">数据库提供程序名称</param>
-        public DapperDataAccess(string connectionString, string providerName) : base()
-        {
-            //.net core 不支持
-            //dbProviderFactory = DbProviderFactories.GetFactory(providerName);
-            if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(providerName))
-            {
-                throw new ArgumentNullException("connectionString", "connectionString is null or providerName is null.");
-            }
-            dbProviderFactory = GetDbProviderFactory(providerName);
-            this.connectionString = connectionString;
         }
 
         #region CRUD

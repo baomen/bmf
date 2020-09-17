@@ -637,7 +637,8 @@ namespace BaoMen.Common.Data
             type = GetType();
             logger = LogManager.GetLogger(type.FullName);
             //logger = LogManager.GetCurrentClassLogger();
-            dal = DataAccessFactory.Create<TEntity, TFilter, TDataAccess>(configuration);
+            // dal = DataAccessFactory.Create<TEntity, TFilter, TDataAccess>(configuration);
+            dal = DataAccessFactory.Create<TDataAccess>(configuration);
         }
 
         /// <summary>

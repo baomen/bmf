@@ -339,6 +339,7 @@ namespace BaoMen.Framework.Web.Util
             return Invoke<TModel>((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
+                PrepareCreateEntiy(entity);
                 int rows = manager.Insert(entity);
                 if (rows > 0)
                     responseData.Data = mapper.Map<TModel>(entity);
@@ -382,6 +383,15 @@ namespace BaoMen.Framework.Web.Util
         }
 
         /// <summary>
+        /// 准备创建的实体数据
+        /// </summary>
+        /// <param name="entity">实体</param>
+        protected void PrepareCreateEntiy(TEntity entity)
+        {
+
+        }
+
+        /// <summary>
         /// 更新数据
         /// </summary>
         /// <param name="model">更新模型</param>
@@ -392,6 +402,7 @@ namespace BaoMen.Framework.Web.Util
             return Invoke((responseData) =>
             {
                 TEntity entity = mapper.Map<TEntity>(model);
+                PrepareUpdateEntity(entity);
                 int rows = manager.Update(entity);
                 if (rows == 0)
                 {
@@ -420,6 +431,15 @@ namespace BaoMen.Framework.Web.Util
             //    logger.Error(exception);
             //}
             //return responseData;
+        }
+
+        /// <summary>
+        /// 准备更新的实体数据
+        /// </summary>
+        /// <param name="entity">实体</param>
+        protected virtual void PrepareUpdateEntity(TEntity entity)
+        {
+
         }
 
         /// <summary>
