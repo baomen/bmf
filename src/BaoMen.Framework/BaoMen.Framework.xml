@@ -5435,10 +5435,27 @@
             类型
             </summary>
         </member>
+        <member name="F:BaoMen.Common.Data.DapperDataAccess.dbProviderFactory">
+            <summary>
+            数据库的Provider工厂实例
+            </summary>
+        </member>
+        <member name="F:BaoMen.Common.Data.DapperDataAccess.connectionString">
+            <summary>
+            数据库链接串
+            </summary>
+        </member>
         <member name="M:BaoMen.Common.Data.DapperDataAccess.#ctor">
             <summary>
             默认构造函数
             </summary>
+        </member>
+        <member name="M:BaoMen.Common.Data.DapperDataAccess.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="connectionString">数据库连接串</param>
+            <param name="providerName">数据库提供程序名称</param>
         </member>
         <member name="M:BaoMen.Common.Data.DapperDataAccess.CreateId">
             <summary>
@@ -5471,7 +5488,14 @@
             获取存储过程的参数（注意：要链接数据库，高耗费资源的操作）
             </summary>
             <param name="procedureName"></param>
+            <param name="connectionString">数据库连接串</param>
             <param name="dbProviderFactory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BaoMen.Common.Data.DapperDataAccess.CreateConnection">
+            <summary>
+            创建默认的数据库链接
+            </summary>
             <returns></returns>
         </member>
         <member name="M:BaoMen.Common.Data.DapperDataAccess.Process``1(BaoMen.Common.Constant.DataOperationType,System.Func{NLog.LogEventInfo,``0},System.Action{NLog.LogEventInfo})">
@@ -5560,29 +5584,12 @@
             数据库表名称
             </summary>
         </member>
-        <member name="F:BaoMen.Common.Data.DapperDataAccess`3.dbProviderFactory">
+        <member name="M:BaoMen.Common.Data.DapperDataAccess`3.#ctor(System.String,System.String)">
             <summary>
-            数据库的Provider工厂实例
+            构造函数
             </summary>
-        </member>
-        <member name="F:BaoMen.Common.Data.DapperDataAccess`3.connectionString">
-            <summary>
-            数据库链接串
-            </summary>
-        </member>
-        <member name="M:BaoMen.Common.Data.DapperDataAccess`3.CreateConnection">
-            <summary>
-            创建默认的数据库链接
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BaoMen.Common.Data.DapperDataAccess`3.GetStoredProcedureParameters(System.String,System.String,System.Data.Common.DbProviderFactory)">
-            <summary>
-            获取存储过程的参数（注意：要链接数据库，高耗费资源的操作）
-            </summary>
-            <param name="procedureName"></param>
-            <param name="dbProviderFactory"></param>
-            <returns></returns>
+            <param name="connectionString">数据库连接串</param>
+            <param name="providerName">数据库提供程序名称</param>
         </member>
         <member name="M:BaoMen.Common.Data.DapperDataAccess`3.AddParameter``1(System.String,System.String,BaoMen.Common.Model.FilterProperty{``0},Dapper.DynamicParameters)">
             <summary>
@@ -5602,13 +5609,6 @@
             <param name="propertyName">参数名称</param>
             <param name="filterProperty">过滤器属性实例</param>
             <param name="parameters">参数</param>
-        </member>
-        <member name="M:BaoMen.Common.Data.DapperDataAccess`3.#ctor(System.String,System.String)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="connectionString">数据库连接串</param>
-            <param name="providerName">数据库提供程序名称</param>
         </member>
         <member name="M:BaoMen.Common.Data.DapperDataAccess`3.Insert(`1,System.Data.IDbTransaction)">
             <summary>
@@ -5839,7 +5839,7 @@
             </summary>
             <typeparam name="T">数据访问基类。要求必须有默认的构造函数。</typeparam>
         </member>
-        <member name="M:BaoMen.Common.Data.DataAccessFactory.Create``3(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:BaoMen.Common.Data.DataAccessFactory.Create``1(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             创建一个数据访问层实例
             </summary>
@@ -7035,6 +7035,14 @@
             <summary>
             Dapper扩展
             </summary>
+        </member>
+        <member name="M:BaoMen.Common.Extension.DapperExtension.Execute(System.Data.IDbConnection,BaoMen.Common.Model.DapperCommand)">
+            <summary>
+            执行
+            </summary>
+            <param name="dbConnection">数据库连接</param>
+            <param name="command">DapperCommand实例</param>
+            <returns></returns>
         </member>
         <member name="M:BaoMen.Common.Extension.DapperExtension.GetIntIdentity(System.Data.IDbConnection,System.Data.IDbTransaction)">
             <summary>

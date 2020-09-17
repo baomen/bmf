@@ -68,6 +68,12 @@ namespace BaoMen.Common.Extension
 
         #region Execute
 
+        /// <summary>
+        /// 执行
+        /// </summary>
+        /// <param name="dbConnection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <returns></returns>
         public static int Execute(this IDbConnection dbConnection, DapperCommand command)
         {
             CheckDapperCommand(command);

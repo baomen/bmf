@@ -2078,12 +2078,26 @@
             <param name="model">创建模型</param>
             <returns></returns>
         </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`8.PrepareCreateEntity(`4,`1)">
+            <summary>
+            准备创建的实体数据
+            </summary>
+            <param name="model">模型</param>
+            <param name="entity">实体</param>
+        </member>
         <member name="M:BaoMen.Framework.Web.Util.BaseController`8.Update(`5)">
             <summary>
             更新数据
             </summary>
             <param name="model">更新模型</param>
             <returns></returns>
+        </member>
+        <member name="M:BaoMen.Framework.Web.Util.BaseController`8.PrepareUpdateEntity(`5,`1)">
+            <summary>
+            准备更新的实体数据
+            </summary>
+            <param name="model">模型</param>
+            <param name="entity">实体</param>
         </member>
         <member name="M:BaoMen.Framework.Web.Util.BaseController`8.Delete(`6)">
             <summary>
