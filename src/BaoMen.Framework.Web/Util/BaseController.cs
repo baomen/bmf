@@ -88,6 +88,13 @@ namespace BaoMen.Framework.Web.Util
                 //responseData.Exception = autoMapperMappingException;
                 logger.Error(autoMapperMappingException);
             }
+            catch (BusinessLogicException exception)
+            {
+                responseData.ErrorNumber = 1010;
+                responseData.ErrorMessage = exception.Message;
+                responseData.Exception = exception;
+                logger.Error(exception);
+            }
             catch (Exception exception)
             {
                 responseData.ErrorNumber = 1000;
