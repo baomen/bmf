@@ -39,6 +39,10 @@ namespace BaoMen.Common.Data
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IConnectionMultiplexer GetConnectionMultiplexer()
         {
             if ((connectionMultiplexer == null) || !connectionMultiplexer.IsConnected)
@@ -117,6 +121,7 @@ namespace BaoMen.Common.Data
         /// </summary>
         /// <param name="id">标识</param>
         /// <param name="value">值</param>
+        /// <param name="expiry">到期时间</param>
         /// <param name="serializeType">序列化类型</param>
         /// <param name="databaseIndex">数据库索引</param>
         /// <returns></returns>
@@ -173,6 +178,7 @@ namespace BaoMen.Common.Data
         /// 删除数据
         /// </summary>
         /// <param name="id">标识</param>
+        /// <param name="databaseIndex">数据库索引</param>
         /// <returns></returns>
         public virtual bool Delete(TKey id, int databaseIndex = -1)
         {

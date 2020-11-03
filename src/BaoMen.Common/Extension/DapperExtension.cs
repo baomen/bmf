@@ -64,6 +64,9 @@ namespace BaoMen.Common.Extension
     /// </summary>
     public static partial class DapperExtension
     {
+        /// <summary>
+        /// 日志实例
+        /// </summary>
         public static NLog.ILogger logger = NLog.LogManager.GetCurrentClassLogger();
 
         #region Execute
@@ -71,54 +74,96 @@ namespace BaoMen.Common.Extension
         /// <summary>
         /// 执行
         /// </summary>
-        /// <param name="dbConnection">数据库连接</param>
+        /// <param name="connection">数据库连接</param>
         /// <param name="command">DapperCommand实例</param>
         /// <returns></returns>
-        public static int Execute(this IDbConnection dbConnection, DapperCommand command)
+        public static int Execute(this IDbConnection connection, DapperCommand command)
         {
             CheckDapperCommand(command);
             CommandDefinition commandDefinition = CreateCommandDefine(command);
-            return dbConnection.Execute(commandDefinition);
+            return connection.Execute(commandDefinition);
         }
 
-        public static T ExecuteScalar<T>(this IDbConnection dbConnection, DapperCommand command)
+        /// <summary>
+        /// 执行查询，并返回查询所返回的结果集中第一行的第一列。 忽略其他列或行。
+        /// </summary>
+        /// <typeparam name="T">返回的类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <returns></returns>
+        public static T ExecuteScalar<T>(this IDbConnection connection, DapperCommand command)
         {
             CheckDapperCommand(command);
             CommandDefinition commandDefinition = CreateCommandDefine(command);
-            return dbConnection.ExecuteScalar<T>(commandDefinition);
+            return connection.ExecuteScalar<T>(commandDefinition);
         }
         #endregion
 
         #region Query
 
-        public static T QuerySingle<T>(this IDbConnection dbConnection, DapperCommand command)
+        /// <summary>
+        /// 查询单条数据
+        /// </summary>
+        /// <typeparam name="T">返回的类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <returns></returns>
+        public static T QuerySingle<T>(this IDbConnection connection, DapperCommand command)
         {
             CheckDapperCommand(command);
             CommandDefinition commandDefinition = CreateCommandDefine(command);
-            return dbConnection.QuerySingle<T>(commandDefinition);
+            return connection.QuerySingle<T>(commandDefinition);
         }
 
-        public static T QuerySingleOrDefault<T>(this IDbConnection dbConnection, DapperCommand command)
+        /// <summary>
+        /// 查询单条数据或默认值
+        /// </summary>
+        /// <typeparam name="T">返回的类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <returns></returns>
+        public static T QuerySingleOrDefault<T>(this IDbConnection connection, DapperCommand command)
         {
             CheckDapperCommand(command);
             CommandDefinition commandDefinition = CreateCommandDefine(command);
-            return dbConnection.QuerySingleOrDefault<T>(commandDefinition);
+            return connection.QuerySingleOrDefault<T>(commandDefinition);
         }
 
-        public static T QueryFirst<T>(this IDbConnection dbConnection, DapperCommand command)
+        /// <summary>
+        /// 查询第一条数据
+        /// </summary>
+        /// <typeparam name="T">返回的类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <returns></returns>
+        public static T QueryFirst<T>(this IDbConnection connection, DapperCommand command)
         {
             CheckDapperCommand(command);
             CommandDefinition commandDefinition = CreateCommandDefine(command);
-            return dbConnection.QueryFirst<T>(commandDefinition);
+            return connection.QueryFirst<T>(commandDefinition);
         }
 
-        public static T QueryFirstOrDefault<T>(this IDbConnection dbConnection, DapperCommand command)
+        /// <summary>
+        /// 查询第一条数据或默认值
+        /// </summary>
+        /// <typeparam name="T">返回的类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <returns></returns>
+        public static T QueryFirstOrDefault<T>(this IDbConnection connection, DapperCommand command)
         {
             CheckDapperCommand(command);
             CommandDefinition commandDefinition = CreateCommandDefine(command);
-            return dbConnection.QueryFirstOrDefault<T>(commandDefinition);
+            return connection.QueryFirstOrDefault<T>(commandDefinition);
         }
 
+        /// <summary>
+        /// 查询数据
+        /// </summary>
+        /// <typeparam name="TReturn">返回的类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <returns></returns>
         public static IEnumerable<TReturn> Query<TReturn>(this IDbConnection connection, DapperCommand command)
         {
             CheckDapperCommand(command);
@@ -126,6 +171,15 @@ namespace BaoMen.Common.Extension
             return connection.Query<TReturn>(commandDefinition);
         }
 
+        /// <summary>
+        /// 查询数据
+        /// </summary>
+        /// <typeparam name="TReturn">返回的类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <param name="startRowIndex">从0开始的索引</param>
+        /// <param name="maximumRows">最大的行数</param>
+        /// <returns></returns>
         public static IEnumerable<TReturn> Query<TReturn>(this IDbConnection connection, DapperCommand command, int startRowIndex = 0, int maximumRows = int.MaxValue)
         {
             CheckDapperCommand(command);
@@ -134,6 +188,18 @@ namespace BaoMen.Common.Extension
             return connection.Query<TReturn>(commandDefinition);
         }
 
+        /// <summary>
+        /// 查询数据
+        /// </summary>
+        /// <typeparam name="TReturn">返回的类型</typeparam>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <param name="map">map委托</param>
+        /// <param name="splitOn">分割的字段名称</param>
+        /// <param name="startRowIndex">从0开始的索引</param>
+        /// <param name="maximumRows">最大的行数</param>
         public static IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(this IDbConnection connection, DapperCommand command, Func<TFirst, TSecond, TReturn> map, string splitOn, int startRowIndex = 0, int maximumRows = int.MaxValue)
         {
             CheckDapperCommand(command);
@@ -150,6 +216,19 @@ namespace BaoMen.Common.Extension
                 commandType: command.CommandType);
         }
 
+        /// <summary>
+        /// 查询数据
+        /// </summary>
+        /// <typeparam name="TReturn">返回的类型</typeparam>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <param name="map">map委托</param>
+        /// <param name="splitOn">分割的字段名称</param>
+        /// <param name="startRowIndex">从0开始的索引</param>
+        /// <param name="maximumRows">最大的行数</param>
         public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(this IDbConnection connection, DapperCommand command, Func<TFirst, TSecond, TThird, TReturn> map, string splitOn, int startRowIndex = 0, int maximumRows = int.MaxValue)
         {
             CheckDapperCommand(command);
@@ -166,6 +245,20 @@ namespace BaoMen.Common.Extension
                 commandType: command.CommandType);
         }
 
+        /// <summary>
+        /// 查询数据
+        /// </summary>
+        /// <typeparam name="TReturn">返回的类型</typeparam>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <typeparam name="TFourth">第四个实体类型</typeparam>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="command">DapperCommand实例</param>
+        /// <param name="map">map委托</param>
+        /// <param name="splitOn">分割的字段名称</param>
+        /// <param name="startRowIndex">从0开始的索引</param>
+        /// <param name="maximumRows">最大的行数</param>
         public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(this IDbConnection connection, DapperCommand command, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, string splitOn, int startRowIndex = 0, int maximumRows = int.MaxValue)
         {
             CheckDapperCommand(command);
@@ -195,7 +288,7 @@ namespace BaoMen.Common.Extension
             if (startRowIndex == 0 && maximumRows == int.MaxValue) return;
             switch (connection)
             {
-                case MySqlConnection conn:
+                case MySqlConnection _:
                     PrepareMySqlPageCommand(command, startRowIndex, maximumRows);
                     break;
                 default:

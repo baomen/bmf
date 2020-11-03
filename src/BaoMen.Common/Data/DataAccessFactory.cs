@@ -7,10 +7,9 @@ namespace BaoMen.Common.Data
     /// <summary>
     /// 泛型数据访问层工厂
     /// </summary>
-    /// <typeparam name="T">数据访问基类。要求必须有默认的构造函数。</typeparam>
     public static class DataAccessFactory
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly static Logger logger = LogManager.GetCurrentClassLogger();
 
 
         /// <summary>

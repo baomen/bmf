@@ -603,7 +603,6 @@ namespace BaoMen.Common.Data
         /// <summary>
         /// 根据实体标识获取实体实例
         /// </summary>
-        /// <typeparam name="TKey">实体标识类型</typeparam>
         /// <param name="id">实体标识</param>
         /// <param name="transaction">数据库事务</param>
         /// <returns>实体类的实例</returns>

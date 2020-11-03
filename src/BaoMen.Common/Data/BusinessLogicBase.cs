@@ -534,6 +534,7 @@ namespace BaoMen.Common.Data
         /// 执行Cap数据库事务操作
         /// </summary>
         /// <param name="func">要执行的方法</param>
+        /// <param name="capPublisher">CAP发布服务</param>
         /// <param name="autoCommit">是否自动提交事务。默认值true</param>
         protected int ProcessWithCapTransaction(Func<IDbTransaction, int> func, ICapPublisher capPublisher, bool autoCommit = true)
         {
@@ -577,6 +578,7 @@ namespace BaoMen.Common.Data
         /// 执行Cap数据库事务操作
         /// </summary>
         /// <param name="action">要执行的方法</param>
+        /// <param name="capPublisher">CAP发布服务</param>
         /// <param name="autoCommit">是否自动提交事务。默认值true</param>
         protected void ProcessWithCapTransaction(Action<IDbTransaction> action, ICapPublisher capPublisher, bool autoCommit = true)
         {
@@ -798,7 +800,6 @@ namespace BaoMen.Common.Data
         /// <para>如果在SelectedError事件中处理了异常，则不抛出异常</para>
         /// </exception>
         /// <param name="id">实体标识</param>
-        /// <typeparam name="TKey">实体标识类型</typeparam>
         /// <returns>实体类的实例</returns>
         public virtual TEntity Get(TKey id)
         {
@@ -818,7 +819,6 @@ namespace BaoMen.Common.Data
         /// <para>仅内部使用。</para>
         /// </summary>
         /// <param name="id">实体标识</param>
-        /// <typeparam name="TKey">实体标识类型</typeparam>
         /// <returns>实体类的实例</returns>
         protected virtual TEntity DoGet(TKey id)
         {
@@ -1511,6 +1511,7 @@ namespace BaoMen.Common.Data
     /// <summary>
     /// 带缓存和过滤器的分层结构业务逻辑
     /// </summary>
+    /// <typeparam name="TKey">键的类型</typeparam>
     /// <typeparam name="TEntity">实体类型。必须实现IHierarchicalData接口</typeparam>
     /// <typeparam name="TFilter">实体过滤器类型</typeparam>
     /// <typeparam name="TDataAccess">数据访问类型</typeparam>

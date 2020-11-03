@@ -23,7 +23,14 @@ namespace BaoMen.Common.Cache
         private readonly Dictionary<string, string> keyMapDictionary = new Dictionary<string, string>();
         private readonly string guid = Guid.NewGuid().ToString();
 
+        /// <summary>
+        /// 缓存开始同步事件
+        /// </summary>
         public event EventHandler<CacheSynchronizingEventArgs> OnSynchronizing;
+
+        /// <summary>
+        /// 缓存同步完成事件
+        /// </summary>
         public event EventHandler<CacheSynchronizedEventArgs> OnSynchronized;
 
         /// <summary>
@@ -124,6 +131,9 @@ namespace BaoMen.Common.Cache
         #endregion
 
         #region IDisposable
+        /// <summary>
+        /// 销毁对象
+        /// </summary>
         public void Dispose()
         {
             memoryCache = null;

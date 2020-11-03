@@ -152,7 +152,6 @@ namespace BaoMen.Common.Data
         /// <para>如果在调用DoGet方法时抛出异常，则抛出包装后的异常。</para>
         /// <para>如果在SelectedError事件中处理了异常，则不抛出异常</para>
         /// </exception>
-        /// <typeparam name="T">实体标识类型</typeparam>
         /// <param name="id">实体标识</param>
         /// <returns>实体类的实例</returns>
         TEntity Get(TKey id);

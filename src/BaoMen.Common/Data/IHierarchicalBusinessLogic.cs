@@ -3,6 +3,7 @@
     /// <summary>
     /// 带过滤器的分层业务逻辑
     /// </summary>
+    /// <typeparam name="TKey">键的类型</typeparam>
     /// <typeparam name="TEntity">实体类型</typeparam>
     /// <typeparam name="TFilter">实体过滤器类型</typeparam>
     public interface IHierarchicalBusinessLogic<TKey, TEntity, TFilter> : IBusinessLogic<TKey, TEntity, TFilter>
