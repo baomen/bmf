@@ -14,7 +14,11 @@ namespace BaoMen.Framework.System.BusinessLogic
     /// </summary>
     public interface IDownloadFileManager : IBusinessLogic<int,DownloadFile,DownloadFileFilter>
     {
-
+        /// <summary>
+        /// 获取上传文件的目录路径
+        /// </summary>
+        /// <returns></returns>
+        string GetDownloadPath();
     }
     #endregion
 }
