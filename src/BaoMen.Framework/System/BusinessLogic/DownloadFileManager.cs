@@ -31,7 +31,7 @@ namespace BaoMen.Framework.System.BusinessLogic
         }
 
         /// <summary>
-        /// 获取上传文件的目录路径
+        /// 获取下载文件的目录路径
         /// </summary>
         /// <returns></returns>
         public string GetDownloadPath()
