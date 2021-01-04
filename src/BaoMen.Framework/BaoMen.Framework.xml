@@ -103,11 +103,18 @@
             系统下载文件业务逻辑
             </summary>
         </member>
-        <member name="M:BaoMen.Framework.System.BusinessLogic.DownloadFileManager.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:BaoMen.Framework.System.BusinessLogic.DownloadFileManager.#ctor(Microsoft.Extensions.Configuration.IConfiguration,System.IServiceProvider)">
             <summary>
             构造函数
             </summary>
             <param name="configuration">配置实例</param>
+            <param name="serviceProvider">服务提供程序</param>
+        </member>
+        <member name="M:BaoMen.Framework.System.BusinessLogic.DownloadFileManager.GetDownloadPath">
+            <summary>
+            获取下载文件的目录路径
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:BaoMen.Framework.System.BusinessLogic.ICityManager">
             <summary>
@@ -123,6 +130,12 @@
             <summary>
             系统下载文件业务逻辑接口
             </summary>
+        </member>
+        <member name="M:BaoMen.Framework.System.BusinessLogic.IDownloadFileManager.GetDownloadPath">
+            <summary>
+            获取上传文件的目录路径
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:BaoMen.Framework.System.BusinessLogic.IModuleManager">
             <summary>
@@ -5313,7 +5326,7 @@
             <param name="propertyExpressioin">实体属性表达式</param>
             <param name="valueExpression">值表达式</param>
         </member>
-        <member name="M:BaoMen.Common.Data.CacheableBusinessLogicBase`4.AddExpression(System.Linq.Expressions.Expression@,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,BaoMen.Common.Constant.DbCompareOperator,BaoMen.Common.Constant.DbLogicOperator)">
+        <member name="M:BaoMen.Common.Data.CacheableBusinessLogicBase`4.AddExpression(System.Linq.Expressions.Expression@,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,BaoMen.Common.Constant.DbCompareOperator)">
             <summary>
             添加表达式
             </summary>
@@ -5321,7 +5334,6 @@
             <param name="propertyExpressioin">实体属性表达式</param>
             <param name="valueExpression">值表达式</param>
             <param name="compareOperator">比较操作类型</param>
-            <param name="logicOperator">逻辑操作类型</param>
         </member>
         <member name="M:BaoMen.Common.Data.CacheableBusinessLogicBase`4.CreateFilterExpression(`2)">
             <summary>
@@ -7508,11 +7520,6 @@
         <member name="P:BaoMen.Common.Model.FilterProperty`1.Value">
             <summary>
             值
-            </summary>
-        </member>
-        <member name="P:BaoMen.Common.Model.FilterProperty`1.LogicOperator">
-            <summary>
-            逻辑操作符
             </summary>
         </member>
         <member name="P:BaoMen.Common.Model.FilterProperty`1.CompareOperator">
