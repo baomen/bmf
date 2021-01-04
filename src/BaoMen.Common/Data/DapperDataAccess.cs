@@ -382,43 +382,83 @@ namespace BaoMen.Common.Data
             {
                 case Constant.DbCompareOperator.Equal:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1}=@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName}=@{propertyName}";
                 case Constant.DbCompareOperator.NotEqual:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1}<>@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName}<>@{propertyName}";
                 case Constant.DbCompareOperator.GreaterThan:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1}>@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName}>@{propertyName}";
                 case Constant.DbCompareOperator.GreaterThanOrEqual:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1}>=@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName}>=@{propertyName}";
                 case Constant.DbCompareOperator.LessThan:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1}<@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName}<@{propertyName}";
                 case Constant.DbCompareOperator.LessThanOrEqual:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1}<=@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName}<=@{propertyName}";
                 case Constant.DbCompareOperator.IsNull:
-                    return string.Format(" {0} {1} is null", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName} is null";
                 case Constant.DbCompareOperator.IsNotNull:
-                    return string.Format(" {0} {1} is not null", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName} is not null";
                 case Constant.DbCompareOperator.StartWith:
                     parameters.Add(propertyName, $"%{filterProperty.Value}");
-                    return string.Format(" {0} {1} like @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName} like @{propertyName}";
                 case Constant.DbCompareOperator.EndWith:
                     parameters.Add(propertyName, $"{filterProperty.Value}%");
-                    return string.Format(" {0} {1} like @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName} like @{propertyName}";
                 case Constant.DbCompareOperator.Contains:
                     parameters.Add(propertyName, $"%{filterProperty.Value}%");
-                    return string.Format(" {0} {1} like @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName} like @{propertyName}";
                 case Constant.DbCompareOperator.In:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1} in @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName} in @{propertyName}";
                 case Constant.DbCompareOperator.NotIn:
                     parameters.Add(propertyName, filterProperty.Value);
-                    return string.Format(" {0} {1} not in @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    return $" and {columnName} not in @{propertyName}";
                 default:
                     return string.Empty;
+
+                    //case Constant.DbCompareOperator.Equal:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1}=@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.NotEqual:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1}<>@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.GreaterThan:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1}>@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.GreaterThanOrEqual:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1}>=@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.LessThan:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1}<@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.LessThanOrEqual:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1}<=@{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.IsNull:
+                    //    return string.Format(" {0} {1} is null", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.IsNotNull:
+                    //    return string.Format(" {0} {1} is not null", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.StartWith:
+                    //    parameters.Add(propertyName, $"%{filterProperty.Value}");
+                    //    return string.Format(" {0} {1} like @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.EndWith:
+                    //    parameters.Add(propertyName, $"{filterProperty.Value}%");
+                    //    return string.Format(" {0} {1} like @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.Contains:
+                    //    parameters.Add(propertyName, $"%{filterProperty.Value}%");
+                    //    return string.Format(" {0} {1} like @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.In:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1} in @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //case Constant.DbCompareOperator.NotIn:
+                    //    parameters.Add(propertyName, filterProperty.Value);
+                    //    return string.Format(" {0} {1} not in @{2}", filterProperty.LogicOperator, columnName, propertyName);
+                    //default:
+                    //    return string.Empty;
             }
         }
 

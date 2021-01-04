@@ -1324,7 +1324,7 @@ namespace BaoMen.Common.Data
         /// <param name="valueExpression">值表达式</param>
         protected void AddExpression(ref Expression expression, Expression propertyExpressioin, Expression valueExpression)
         {
-            AddExpression(ref expression, propertyExpressioin, valueExpression, DbCompareOperator.Equal, DbLogicOperator.And);
+            AddExpression(ref expression, propertyExpressioin, valueExpression, DbCompareOperator.Equal);
         }
 
         /// <summary>
@@ -1334,8 +1334,7 @@ namespace BaoMen.Common.Data
         /// <param name="propertyExpressioin">实体属性表达式</param>
         /// <param name="valueExpression">值表达式</param>
         /// <param name="compareOperator">比较操作类型</param>
-        /// <param name="logicOperator">逻辑操作类型</param>
-        protected void AddExpression(ref Expression expression, Expression propertyExpressioin, Expression valueExpression, DbCompareOperator compareOperator, DbLogicOperator logicOperator)
+        protected void AddExpression(ref Expression expression, Expression propertyExpressioin, Expression valueExpression, DbCompareOperator compareOperator)
         {
             //var p = Expression.Property(parameter, propertyName);
             //var v = Expression.Constant(value);
@@ -1419,8 +1418,7 @@ namespace BaoMen.Common.Data
                 expression = newExpression;
             else
             {
-                ExpressionType logicType = ExpressionHelper.CovertDbLogicOperator(logicOperator);
-                expression = Expression.MakeBinary(logicType, expression, newExpression);
+                expression = Expression.MakeBinary(ExpressionType.AndAlso, expression, newExpression);
             }
         }
 
@@ -1455,13 +1453,10 @@ namespace BaoMen.Common.Data
                         }
                         if (entityPropertyType.IsGenericType && entityPropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
                         {
-                            //Type[] filterTypeArguments = propertyInfo.PropertyType.GetGenericArguments();
-                            //System.Linq.Expressions.UnaryExpression typeAsExpression = System.Linq.Expressions.Expression.TypeAs(System.Linq.Expressions.Expression.Constant(d.Value, filterTypeArguments[0]), entityPropertyType);
-                            //AddExpression(ref expression, parameter, filterHelper.PropertyAttributeDict[propertyInfo.Name].EntityPropertyName, typeAsExpression, d.CompareOperator, d.LogicOperator);
-                            AddExpression(ref expression, propertyExpression, Expression.Constant(d.Value, entityPropertyType), d.CompareOperator, d.LogicOperator);
+                            AddExpression(ref expression, propertyExpression, Expression.Constant(d.Value, entityPropertyType), d.CompareOperator);
                         }
                         else
-                            AddExpression(ref expression, propertyExpression, Expression.Constant(d.Value), d.CompareOperator, d.LogicOperator);
+                            AddExpression(ref expression, propertyExpression, Expression.Constant(d.Value), d.CompareOperator);
                     }
                     else if (Type.GetTypeCode(propertyInfo.PropertyType) == TypeCode.String)
                     {

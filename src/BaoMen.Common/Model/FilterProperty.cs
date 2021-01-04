@@ -39,16 +39,16 @@ namespace BaoMen.Common.Model
             set { this.value = value; }
         }
 
-        private DbLogicOperator logicOperator;
-        /// <summary>
-        /// 逻辑操作符
-        /// </summary>
-        [DataMember]
-        public DbLogicOperator LogicOperator
-        {
-            get { return this.logicOperator; }
-            set { this.logicOperator = value; }
-        }
+        //private DbLogicOperator logicOperator;
+        ///// <summary>
+        ///// 逻辑操作符
+        ///// </summary>
+        //[DataMember]
+        //public DbLogicOperator LogicOperator
+        //{
+        //    get { return this.logicOperator; }
+        //    set { this.logicOperator = value; }
+        //}
 
         private DbCompareOperator compareOperator;
         /// <summary>
